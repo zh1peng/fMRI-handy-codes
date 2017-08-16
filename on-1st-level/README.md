@@ -99,6 +99,7 @@
 8. File>save image
 
 **Advanced tips:**
+
 *Check toolbox manual for*
 1. advanced plotting with different line colors.
 2. batch plotting using codes.
