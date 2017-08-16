@@ -1,7 +1,7 @@
 # Task-related 1st Level GLM
 
 1. Speficiy a 1st level through spm gui
-2. Check the codes for that
+2. Find the codes for that
 3. Make it as a templete, specify the varibales that are different among subjects.
 4. Loop through subject
 
@@ -9,11 +9,11 @@
 
 1. Use `f = spm_select('FPList', fullfile(data_path,subid{indx}), '^swea.*\.nii$');`  or `fullfile`to select the scan file.
 
-2. If the code is not working, check if the 
+2. If the code is not working, check if the
 
     *scan files ➡️  [are pointing the correct files]
 
-    *condition onsets ➡️  [are in correct formate. cColumn vector as I remember] 
+    *condition onsets ➡️  [are in correct formate. cColumn vector as I remember]
 
     *head motion file ➡️[pointing the correct files]
 
@@ -72,15 +72,55 @@
 
    ​
 
-4. Estimate GML and Contrast 
+4. Estimate GML and Contrast
 
 5. :checkered_flag:
 
 ## Note:
 
-1. Make sure `my_spm_regions` and `my_spm_peb_ppi` are in the path. 
-2. There is an "official" way to extract VOI and make PPI variable [see `batch_ppi`]. But need to some changes to make it work, as it is the codes for the example in the SPM manual. I tested it years ago, the extraction results looked same.
+1. Make sure `my_spm_regions` and `my_spm_peb_ppi` are in the path.
+
+2. There is an "official" way to extract VOI and make PPI variable [see `batch_ppi`].
+
+   But need to some changes to make it work, as it is the codes for the example in the SPM manual. I tested it years ago, the extraction results looked same.
 
 # Plot with BrainNet Viewer
 
-:walking: coming soon [converting form word to markdown]
+1.    add brainnet view into matlabpath
+
+2.    In command window, type in“BrainNet”
+
+3.    File>Load File
+
+4. Load Surface file, choose a surface provided by BrainNet
+
+   ![Load surface](../master/img4readme/1.png)
+
+5. Load a node file you made
+
+    A node file includes MNI xyz, node type, node size, nodename;
+    Node type allows you put different types in differentcolor; Use “_” to replace space in the node name.   (No space is allowed in nodename)
+    After you made a file like this, save it as “.node” ratherthan ‘.txt’
+
+   `Note: If pasting excel to txt file does not work, find an original node and edge file (you can find some in the BrainNet viewer folder) that can be loaded in BrainNet and paste the figures in them.`
+
+         ![A node file](../master/img4readme/2.png)
+
+  6. Load an edge file you made
+
+  The edge file is a ROIs*ROIs matrix, and figures in it indicate the connection (0/1) or the strength of connection. In the following example the figures indicate whether there is a connection between two ROIs. After making this edge file, save it with ‘.edge’
+
+   ![A edge file](../master/img4readme/3.png)
+
+  7. Click OK entering Option panel. Set properties like layout, node color, node size, edge color, edge size etc. of the figure and click apply. The plot will appear in the main window.
+
+  8. File>save image
+
+Advanced tips:
+
+Check toolbox manual for 
+
+1. advanced plotting with different line colors.
+2. batch plotting using codes.
+3. save option would be a good idea.
+
