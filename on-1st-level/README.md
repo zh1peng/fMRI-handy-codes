@@ -76,13 +76,11 @@
 
 5. :checkered_flag:
 
-## Note:
+*Note:*
 
 1. Make sure `my_spm_regions` and `my_spm_peb_ppi` are in the path.
+2. There is an "official" way to extract VOI and make PPI variable [see `batch_ppi`]. But need to some changes to make it work, as it is the codes for the example in the SPM manual. I tested it years ago, the extraction results looked same.
 
-2. There is an "official" way to extract VOI and make PPI variable [see `batch_ppi`].
-
-   But need to some changes to make it work, as it is the codes for the example in the SPM manual. I tested it years ago, the extraction results looked same.
 
 # Plot with BrainNet Viewer
 
@@ -94,7 +92,7 @@
 
 4. Load Surface file, choose a surface provided by BrainNet
 
-   ![Load surface](https://github.com/zh1peng/fMRI-handy-codes/blob/master/on-1st-level/img4readme/1.png)
+![Load surface](https://github.com/zh1peng/fMRI-handy-codes/blob/master/on-1st-level/img4readme/1.png)
 
 5. Load a node file you made
 
@@ -104,22 +102,19 @@
 
 Note: If pasting excel to txt file does not work, find an original node and edge file (you can find some in the BrainNet viewer folder) that can be loaded in BrainNet and paste the figures in them.
 
-         ![A node file](https://github.com/zh1peng/fMRI-handy-codes/blob/master/on-1st-level/img4readme/2.png)
+![A node file](https://github.com/zh1peng/fMRI-handy-codes/blob/master/on-1st-level/img4readme/2.png)
 
 6. Load an edge file you made
-
   The edge file is a ROIs*ROIs matrix, and figures in it indicate the connection (0/1) or the strength of connection. In the following example the figures indicate whether there is a connection between two ROIs. After making this edge file, save it with ‘.edge’
 
-   ![A edge file](https://github.com/zh1peng/fMRI-handy-codes/blob/master/on-1st-level/img4readme/3.png)
+![A edge file](https://github.com/zh1peng/fMRI-handy-codes/blob/master/on-1st-level/img4readme/3.png)
 
 7. Click OK entering Option panel. Set properties like layout, node color, node size, edge color, edge size etc. of the figure and click apply. The plot will appear in the main window.
 
 8. File>save image
 
-Advanced tips:
-
+*Advanced tips:*
 Check toolbox manual for
-
 1. advanced plotting with different line colors.
 2. batch plotting using codes.
 3. save option would be a good idea.
