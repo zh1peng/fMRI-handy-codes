@@ -24,7 +24,7 @@
 
 # PPI (Psycho-Physiologic Interaction)
 ## Before PPI:
-1. Run specify a standard GML with conditions and regressors.
+1. Specify a standard GML with conditions and regressors.
 2. Estimate GML
 3. Store results in 'data_path'
 
@@ -63,8 +63,6 @@
        matlabbatch{1}.spm.stats.fmri_spec.sess.multi_reg = {motion_parameter};
    ```
 4. Estimate GML and Contrast
-
-:checkered_flag:
 
 **Note:**
 1. Make sure `my_spm_regions` and `my_spm_peb_ppi` are in the path.
