@@ -94,7 +94,7 @@
 
 4. Load Surface file, choose a surface provided by BrainNet
 
-   ![Load surface](../master/img4readme/1.png)
+   ![Load surface](../master/on-1st-level/img4readme/1.png)
 
 5. Load a node file you made
 
@@ -104,17 +104,17 @@
 
    `Note: If pasting excel to txt file does not work, find an original node and edge file (you can find some in the BrainNet viewer folder) that can be loaded in BrainNet and paste the figures in them.`
 
-         ![A node file](../master/img4readme/2.png)
+         ![A node file](../master/on-1st-level/img4readme/2.png)
 
-  6. Load an edge file you made
+    6. Load an edge file you made
 
   The edge file is a ROIs*ROIs matrix, and figures in it indicate the connection (0/1) or the strength of connection. In the following example the figures indicate whether there is a connection between two ROIs. After making this edge file, save it with ‘.edge’
 
-   ![A edge file](../master/img4readme/3.png)
+   ![A edge file](../master/on-1st-level/img4readme/3.png)
 
-  7. Click OK entering Option panel. Set properties like layout, node color, node size, edge color, edge size etc. of the figure and click apply. The plot will appear in the main window.
+    7. Click OK entering Option panel. Set properties like layout, node color, node size, edge color, edge size etc. of the figure and click apply. The plot will appear in the main window.
 
-  8. File>save image
+    8. File>save image
 
 Advanced tips:
 
