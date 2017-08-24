@@ -8,7 +8,7 @@ spm_jobman('initcfg')
 spm('Defaults','fMRI')
 spm_get_defaults('cmdline',true)
 
-data_path='{dir for the 1st GLM results}'
+data_path='[[dir for the 1st GLM results]]'
 load ('subid.mat')
 
 %% Step1. F test for effect of interest========================================
@@ -59,7 +59,7 @@ for indx=1:length(subid);
         voi = ['VOI_' ,VOI_name{Vi}, '_1.mat'];
         name = [VOI_name{Vi} ,'_' ,comp{1}]; %Loop through the comp if there are multiple comparisions
         PPI = my_spm_peb_ppi(SPM, ppiflag, voi, cond, weight, name);
-        clear SPM, PPI
+        clear PPI
         close all
     end
     strr=['Extracting ROI and Creating PPI Variables for NO.' num2str(indx) ' is done'];
@@ -69,17 +69,17 @@ end
 
 %% Step3. Run another GML with PPI variables=================================================================
 for indx=1:length(subid);
-    f = spm_select('FPList', fullfile('swea files path',subid{indx}), '^swea.*\.nii$');
-    motion_parameter=ls(['movement file path',subid{indx},'/SessionB/EPI_short_MID/' strcat('rp*',subid{indx},'*')]);
-    motion_parameter=fullfile('movement file path',subid{indx},'/SessionB/EPI_short_MID/',motion_parameter);
-    
+    f = spm_select('FPList', fullfile('!!!!swea files path!!!!',subid{indx}), '^swea.*\.nii$');
+    motion_parameter=ls(['!!!!movement file path!!!!',subid{indx},'/SessionB/EPI_short_MID/' strcat('rp*',subid{indx},'*')]);
+    motion_parameter=fullfile('!!!!movement file path!!!!',subid{indx},'/SessionB/EPI_short_MID/',motion_parameter);
+
     for Vi=1:length(VOI_name)
         matlabbatch=[];
         PPI_name = ['PPI_', VOI_name{Vi},'_' comp{1}];
-        sub_dir=fullfile('output dir',PPI_name,subid{indx});
+        sub_dir=fullfile('!!!!output dir!!!!!',PPI_name,subid{indx});
         mkdir(sub_dir);
         load(fullfile(data_path,subid{indx},strcat(PPI_name,'.mat')));
-        
+
         matlabbatch{1}.spm.stats.fmri_spec.dir = cellstr(sub_dir);
         matlabbatch{1}.spm.stats.fmri_spec.timing.units = 'secs';
         matlabbatch{1}.spm.stats.fmri_spec.timing.RT = 2.2;
@@ -93,12 +93,12 @@ for indx=1:length(subid);
         matlabbatch{1}.spm.stats.fmri_spec.sess.regress(3).name = 'Pschol_P';
         matlabbatch{1}.spm.stats.fmri_spec.sess.regress(3).val = PPI.P;
         matlabbatch{1}.spm.stats.fmri_spec.sess.multi_reg = {motion_parameter};
-        
+
         matlabbatch{2}.spm.stats.fmri_est.spmmat(1) = cfg_dep('fMRI model specification: SPM.mat File', substruct('.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','spmmat'));
         matlabbatch{2}.spm.stats.fmri_est.write_residuals = 0;
         matlabbatch{2}.spm.stats.fmri_est.method.Classical = 1;
         matlabbatch{3}.spm.stats.con.spmmat(1) = cfg_dep('Model estimation: SPM.mat File', substruct('.','val', '{}',{1}, '.','val', '{}',{1}, '.','val', '{}',{1}), substruct('.','spmmat'));
-        
+
         matlabbatch{3}.spm.stats.con.consess{1}.tcon.name = 'PPI_interaction';
         matlabbatch{3}.spm.stats.con.consess{1}.tcon.weights = [1];
         matlabbatch{3}.spm.stats.con.consess{1}.tcon.sessrep = 'none';
