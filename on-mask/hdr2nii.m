@@ -11,10 +11,3 @@ V.fname=output;
 spm_write_vol(V,ima);
 end
 
-%% Co reg
-mask2use=cellstr(ls('C:\Users\Zhipeng\Desktop\AAL nii\*.nii'));
-mask2use=fullfile('C:\Users\Zhipeng\Desktop\AAL nii\',mask2use);
-volfiles='C:\Users\Zhipeng\Desktop\GLM 2nd level extraction\Anticipation-Big-No\spmT_0001.nii'
-
-flags.prefix='extract_';flags.which=1;flags.mean=0;
-    spm_reslice([volfiles mask2use'],flags);
