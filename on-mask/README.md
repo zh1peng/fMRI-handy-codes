@@ -56,4 +56,4 @@ flags.prefix='extract_';flags.which=1;flags.mean=0;
 
 ### option
 
-BrainNet viewer plotting option.
+BrainNet viewer plotting option that I was using
