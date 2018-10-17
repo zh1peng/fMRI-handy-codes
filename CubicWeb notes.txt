@@ -1,0 +1,20 @@
+Find all EPI_mid scans in BL and FU2 point:
+
+Any S WHERE S is Scan, S type "EPI_mid"
+Any S WHERE S is Scan, S in_assessment A, A timepoint IN("BL", "FU2"), S type "EPI_mid"
+
+Find all EPI_mid preproc matlab scripts in BL and FU2 point:
+Any P WHERE P is ProcessingRun, P type "tb-fMRI SPM preprocessing", P filesets A, A name "MATLAB SCRIPT", P in_assessment B, B timepoint IN("BL", "FU2"), P label "EPI_mid"
+
+
+, A filesets B, B name "EPI_ONSET"
+
+
+Any X,AA WHERE X is_instance_of ExternalFile, X modification_date AA
+
+Any S WHERE S is Scan, S type "EPI_mid", S filesets B, B name "EPI_ONSETS"
+Any S WHERE S is Scan, S type "EPI_mid", S filesets B, B name "ExternalFile"
+Any S WHERE S is Scan, S type "EPI_mid", S filesets X, X is_instance_of ExternalFile
+Any S WHERE S is Scan, S type "EPI_mid", S filesets X, name "EPI"
+
+Any X WHERE X is_instance_of ExternalFile, X name "EPI_ONSETS"
